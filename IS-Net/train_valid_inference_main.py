@@ -15,6 +15,7 @@ from basics import  f1_mae_torch #normPRED, GOSPRF1ScoresCache,f1score_torch,
 from models import *
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print("will use device type: ", device)
 
 def get_gt_encoder(train_dataloaders, train_datasets, valid_dataloaders, valid_datasets, hypar, train_dataloaders_val, train_datasets_val): #model_path, model_save_fre, max_ite=1000000):
 
