@@ -662,12 +662,12 @@ if __name__ == "__main__":
     ### test your own dataset
     dataset_demo = {"name": "your-dataset",
                  "im_dir": "../your-dataset/im",
-                 "gt_dir": "",
+                 "gt_dir": "../your-dataset/gt",
                  "im_ext": ".jpg",
-                 "gt_ext": "",
+                 "gt_ext": ".png",
                  "cache_dir":"../your-dataset/cache"}
 
-    train_datasets = [dataset_tr] ## users can create mutiple dictionary for setting a list of datasets as training set
+    train_datasets = [dataset_demo] ## users can create mutiple dictionary for setting a list of datasets as training set
     # valid_datasets = [dataset_vd] ## users can create mutiple dictionary for setting a list of datasets as vaidation sets or inference sets
     valid_datasets = [dataset_vd] # dataset_vd, dataset_te1, dataset_te2, dataset_te3, dataset_te4] # and hypar["mode"] = "valid" for inference,
 
