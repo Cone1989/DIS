@@ -718,9 +718,11 @@ if __name__ == "__main__":
     print("building model...")
     hypar["model"] = ISNetDIS() #U2NETFASTFEATURESUP()
     hypar["early_stop"] = 20 ## stop the training when no improvement in the past 20 validation periods, smaller numbers can be used here e.g., 5 or 10.
-    hypar["model_save_fre"] = 2000 ## valid and save model weights every 2000 iterations
+    # 在kaggle上测试，T4运行一个batch size为4的训练，需要1s+，如果2000轮才验证一次，得33个小时。这里设置为500，差不多8个小时保存一次。
+    hypar["model_save_fre"] = 500 #2000 ## valid and save model weights every 2000 iterations
 
-    hypar["batch_size_train"] = 4 ## batch size for training
+    # 在kaggle上，T4运行batch size为8的训练，内存直接溢出了，batch size为4则没有问题。
+    hypar["batch_size_train"] = 6 #4 #8 ## batch size for training
     hypar["batch_size_valid"] = 1 ## batch size for validation and inferencing
     print("batch size: ", hypar["batch_size_train"])
 
