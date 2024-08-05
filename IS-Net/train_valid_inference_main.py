@@ -687,7 +687,7 @@ if __name__ == "__main__":
         hypar["valid_out_dir"] = "" ## for "train" model leave it as "", for "valid"("inference") mode: set it according to your local directory
         hypar["model_path"] ="../saved_models/IS-Net-test" ## model weights saving (or restoring) path
         hypar["restore_model"] = "isnet.pth" ## name of the segmentation model weights .pth for resume training process from last stop or for the inferencing
-        hypar["start_ite"] = 500 ## start iteration for the training, can be changed to match the restored training process
+        hypar["start_ite"] = 568 ## start iteration for the training, can be changed to match the restored training process
         hypar["gt_encoder_model"] = ""
     else: ## configure the segmentation output path and the to-be-used model weights path
         hypar["valid_out_dir"] = "../your-results/"##"../DIS5K-Results-test" ## output inferenced segmentation maps into this fold
@@ -719,7 +719,7 @@ if __name__ == "__main__":
     hypar["model"] = ISNetDIS() #U2NETFASTFEATURESUP()
     hypar["early_stop"] = 20 ## stop the training when no improvement in the past 20 validation periods, smaller numbers can be used here e.g., 5 or 10.
     # 在kaggle上测试，T4运行一个batch size为4的训练，需要1s+，如果2000轮才验证一次，得33个小时。这里设置为500，差不多8个小时保存一次。
-    hypar["model_save_fre"] = 534 #2000 ## valid and save model weights every 2000 iterations
+    hypar["model_save_fre"] = 500 #2000 ## valid and save model weights every 2000 iterations
 
     # 在kaggle上，T4运行batch size为8的训练，内存直接溢出了，batch size为4则没有问题。
     hypar["batch_size_train"] = 6 #4 #8 ## batch size for training
