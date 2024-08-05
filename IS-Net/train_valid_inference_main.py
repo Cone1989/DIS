@@ -687,7 +687,7 @@ if __name__ == "__main__":
         hypar["valid_out_dir"] = "" ## for "train" model leave it as "", for "valid"("inference") mode: set it according to your local directory
         hypar["model_path"] ="../saved_models/IS-Net-test" ## model weights saving (or restoring) path
         hypar["restore_model"] = "gpu_itr_534_traLoss_0.8203_traTarLoss_0.1121_valLoss_1.4194_valTarLoss_0.2032_maxF1_0.9141_mae_0.0743_time_0.028609.pth" ## name of the segmentation model weights .pth for resume training process from last stop or for the inferencing
-        hypar["start_ite"] = 602 ## start iteration for the training, can be changed to match the restored training process
+        hypar["start_ite"] = 636 ## start iteration for the training, can be changed to match the restored training process
         hypar["gt_encoder_model"] = ""
     else: ## configure the segmentation output path and the to-be-used model weights path
         hypar["valid_out_dir"] = "../your-results/"##"../DIS5K-Results-test" ## output inferenced segmentation maps into this fold
@@ -722,7 +722,7 @@ if __name__ == "__main__":
     hypar["model_save_fre"] = 500 #2000 ## valid and save model weights every 2000 iterations
 
     # 在kaggle上，T4运行batch size为8的训练，内存直接溢出了，batch size为4则没有问题。
-    hypar["batch_size_train"] = 6 #4 #8 ## batch size for training
+    hypar["batch_size_train"] = 2 #4 #8 ## batch size for training
     hypar["batch_size_valid"] = 1 ## batch size for validation and inferencing
     print("batch size: ", hypar["batch_size_train"])
 
